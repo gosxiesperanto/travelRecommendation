@@ -8,6 +8,7 @@ function search(){
           .catch(error => console.error('Error:', error));
       }
 
-function reset(){
+function reset(text){
         const cleared document.getElementById("result") = "";
-      }
+        text = cleared
+        }
