@@ -9,6 +9,6 @@ function search(){
       }
 
 function reset(text){
-        const cleared document.getElementById("result") = "";
-        text = cleared
+        const cleared document.getElementById("result").innerHTML = "";
+        text = "";
         }
