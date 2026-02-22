@@ -30,7 +30,9 @@ function search(){
         const newItem = document.createElement('p');
         newItem.innerHTML = countries[i].cities[j].name;
         parent.appendChild(newItem);
+        }
 
+        for (var j = 0; j < countries[i].cities.length; j++) {
         const newItem1 = document.createElement('p');
         newItem1.innerHTML = countries[i].cities[j].description;
         parent1.appendChild(newItem1);
