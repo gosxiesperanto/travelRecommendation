@@ -41,15 +41,22 @@ fetch('./travel_recommendation_api.json')
 .then(data => {
   // Handle successful data
 
-  const keys = Object.keys(data);
-　console.log(keys);
-　console.log(keys.beaches[0].name);
-  document.getElementById('result').innerHTML = keys.beaches[0].name;
+  const countries =  data.countries;
+  const temples = data.temples;
+  const beaches = data.beaches;
+
+  document.getElementById('result').innerHTML = beaches[0].name;
+  
 
 })
+
 .catch(error => {
   // This catches network errors and the error thrown above
   console.error('Fetch error:', error.message);
 });
+
+    
+
+
 
 
