@@ -9,24 +9,60 @@ function search(){
     fetch('./travel_recommendation_api.json')
     .then(response => response.json())
     .then(data => {
-  // Handle successful data
 
-        const countries = data.countries;
-//        const temples = data.temples;
-//        const beaches = data.beaches;
+    const countries = data.countries;
+    const temples = data.temples;
+    const beaches = data.beaches;
 
-    console.log('FOR文の前 word:', word);
-  for (var i = 0; i < countries.length; i++){
-//    console.log('forで比べている対象の文字列',countries[i].name.toLowerCase());
-    if (word === countries[i].name.toLowerCase()) {
+    if (word === "country") {
+            console.log('Word :', word);
+        
+            for (var j = 0; j < 3; j++) {
+                document.getElementById('title').innerHTML = "Country list";
+                let parent = document.getElementById('description');
+                let newItem = document.createElement('p');
+                let newItem1 = document.createElement('p');
+        
+                newItem.textContent = countries[j].name;
+                parent.appendChild(newItem);                          
+                }} else if (word === "beach") {
+                    console.log('Word :', word);
+            
+                    for (var j = 0; j < 3; j++) {
+                        document.getElementById('title').innerHTML = "Beach list";
+                        let parent = document.getElementById('description');
+                        let newItem = document.createElement('p');
+                        let newItem1 = document.createElement('p');
+                
+                        newItem.textContent = beaches[j].name;
+                        parent.appendChild(newItem);
+                        
+                        newItem1.textContent = beaches[j].description;
+                        parent.appendChild(newItem1);
+                        }}  else if (word === "temple") {
+                            console.log('Word :', word);
+                    
+                            for (var j = 0; j < 3; j++) {
+                            document.getElementById('title').innerHTML = "Temple list";
+                            let parent = document.getElementById('description');
+                            let newItem = document.createElement('p');
+                            let newItem1 = document.createElement('p');
+                    
+                            newItem.textContent = temples[j].name;
+                            parent.appendChild(newItem);
+                            
+                            newItem1.textContent = temples[j].description;
+                            parent.appendChild(newItem1);
+                    
+                                }
+    return;
+    }
+    for (var i = 0; i < countries.length; i++) {
+        if (word === countries[i].name.toLowerCase()) {
         console.log('Word :', word);
         console.log('matched!');
 
         document.getElementById('title').innerHTML = countries[i].name;
-        console.log('city1:', countries[i].cities[0].name);
-        console.log('city1:', countries[i].cities[0].description);
-        console.log('city2:', countries[i].cities[1].name);
-        console.log('city2:', countries[i].cities[1].description);
         let parent = document.getElementById('description');
 
         for (var j = 0; j < countries[i].cities.length; j++) {
